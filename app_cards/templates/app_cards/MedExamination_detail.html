@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2 class="page-header">Пациент: {{ mde_inst.patient.first_name }} {{ mde_inst.patient.last_name }} {{mde_inst.patient.patron_name}}</h2>
+
+  <p><strong>Статус:</strong> {{ mde_inst.patient_status }}</p>
+  <p><strong>Дата дествия справки:</strong> {{ mde_inst.dat_end  }}</p>
+  <p><strong>Причина:</strong> {{mde_inst.purpose_medical_examination}}</p>
+  <p><strong>Мобильный телефон:</strong> {{ mde_inst.patient.phone_mobile }}</p>
+   <form action="" method="post">
+        {% csrf_token %}
+        <table>
+        {{ form }}
+        </table>
+   <hr/>
+        <input type="submit" value="Подтвердить" />
+    </form>
+{% endblock %}

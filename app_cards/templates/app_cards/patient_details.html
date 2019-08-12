@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2 class="page-header">Пациент: {{ patient.first_name }} {{ patient.last_name }} {{patient.patron_name}}</h2>
+
+  <p><strong>День рождения:</strong> {{ patient.date_birthday }}</p>
+  <p><strong>Почта:</strong> {{ patient.email }}</p>
+  <p><strong>Мобильный и домащний телефоны:</strong> {{ patient.phone_mobile }}, {{ patient.phone_home }}</p>
+  <p><strong>Место работы:</strong> {{ patient.place_of_work }}</p>
+  <p><strong>Адрес:</strong><p>  р-н {{ patient.rajon }} {{ patient.addr_locality }} {{ patient.addr_city }}  {{ patient.addr_abbreavation }} {{ patient.addr_street }}
+      {% if patient.addr_corpus > 0 %} корпус{{ patient.addr_corpus }} {% endif %}
+      {{ patient.addr_house }} кв.{{ patient.addr_room }}</p>
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Медосмотры</h4>
+
+    {% for copy in patient.medexamination_set.all %}
+    <hr>
+    <p class="text-muted"><strong>Id:</strong> {{copy.id}}</p>
+    <p><strong>Дата медосмотра:</strong> {{copy.date_medical_examination}}</p>
+    <p><strong>Цель:</strong> {{copy.purpose_medical_examination}}</p>
+    <p><strong>Дата окончания:</strong> {{copy.dat_end}}</p>
+    {% endfor %}
+  </div>
+
+{% endblock %}
