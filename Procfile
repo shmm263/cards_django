@@ -1,0 +1,1 @@
+web: gunicorn app_card.wsgi --log-file -
