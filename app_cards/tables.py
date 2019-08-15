@@ -7,6 +7,7 @@ from .models import Patient, MedExamtList, PatientList
 class MedExaminationsTable(tables.Table):
     patient = tables.LinkColumn('patient-detail', args=[A('patient_id')])
     patient_status = tables.LinkColumn('renew-status-medexamination', args=[A('mid')])
+    email = tables.EmailColumn()
     #purpose_medical_examination=tables.Column()
     class Meta:
             model = MedExamtList
@@ -16,6 +17,7 @@ class MedExaminationsTable(tables.Table):
 
 class PatientTables(tables.Table):
     patient = tables.LinkColumn('patient-detail', args=[A('pid')])
+    email = tables.EmailColumn()
     class Meta:
         model = PatientList
         template_name = 'django_tables2/bootstrap.html'
