@@ -12,7 +12,7 @@ class MedExaminationsTable(tables.Table):
     class Meta:
             model = MedExamtList
             template_name = 'django_tables2/bootstrap.html'
-            fields = ('patient', 'patient_status', 'purpose_medical_examination', 'date_medical_examination', 'dat_end', 'date_update')
+            fields = ('patient', 'patient_status', 'email', 'phone_mobile', 'purpose_medical_examination', 'date_medical_examination', 'dat_end', 'date_update')
             attrs = {"class": "table-striped table-bordered "}
 
 class PatientTables(tables.Table):

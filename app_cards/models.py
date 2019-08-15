@@ -176,6 +176,8 @@ class PatientList(models.Model):
 class MedExamtList(models.Model):
     mid = models.IntegerField(primary_key=True)
     patient = models.TextField(verbose_name='Пациент')
+    email = models.CharField(verbose_name='Почта', max_length=20)
+    phone_mobile = models.CharField(verbose_name='Мобильный телефон', max_length=13)
     purpose_medical_examination= models.CharField(verbose_name='Цель медосмотра', max_length=20)
     date_medical_examination = models.DateField(verbose_name='Дата медосмотра')
     dat_end = models.DateField(verbose_name='Дата окончанмя действия справки')
